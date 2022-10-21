@@ -12,7 +12,8 @@ servidor.get("/", (peti, resp)=>{
     resp.send("Hola desde servidor REST");
 });
 
-servidor.use ("/libro", require('./rutas/ruta-libro'));
+servidor.use("/libro", require('./rutas/ruta-libro'));
+servidor.use("/autor", require('./rutas/ruta-autor'));
 
 servidor.listen(3000, ()=>{
     console.log("Servidor escuchando en el puerto 3000");
