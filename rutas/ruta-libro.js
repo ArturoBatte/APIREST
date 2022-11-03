@@ -25,9 +25,8 @@ router.post("/", async (peticion, respuesta) => {
     }
 });
 
-router.put("/:id", async (peticion, respuesta) => {
+router.put("/", async (peticion, respuesta) => {
     try {
-        const idactual = peticion.params.id
         const libroRecibido = peticion.body;
         console.log(libroRecibido);
         await tablaLibro.update(libroRecibido, idactual)

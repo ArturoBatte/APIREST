@@ -19,11 +19,11 @@ async function select() {
     }
 }
 
-async function update(libro, idactual) {
+async function update(libro) {
     try {
         const [res] = await conexion.execute(
-            'UPDATE libro SET id = ?, titulo = ?, idautor = ?, paginas = ? WHERE id = ?',
-            [libro.id, libro.titulo, libro.idautor, libro.paginas, idactual]
+            'UPDATE libro SET titulo = ?, idautor = ?, paginas = ? WHERE id = ?',
+            [libro.titulo, libro.idautor, libro.paginas, libro.id]
         );
         console.log(res);
     } catch (err) {
