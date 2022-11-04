@@ -16,6 +16,5 @@ servidor.use("/libro", require('./rutas/ruta-libro'));
 servidor.use("/autor", require('./rutas/ruta-autor'));
 
 servidor.listen(3000, ()=>{
-    console.log('Este es un mensaje de prueba agregado desde Kate');
     console.log("Servidor escuchando en el puerto 3000");
 });
