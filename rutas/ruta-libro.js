@@ -3,6 +3,8 @@ const router = Router();
 const tablaLibro = require('./../baseDatos/libro-bd');
 
 router.get("/", async (peticion, respuesta) => {
+    const autorizacion = peticion.headers.authorization;
+    console.log(autorizacion);
     try {
         const listaLibro = await tablaLibro.select();
         respuesta.json(listaLibro);
