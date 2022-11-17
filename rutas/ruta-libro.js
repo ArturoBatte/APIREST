@@ -7,6 +7,9 @@ router.get("/", async (peticion, respuesta) => {
     console.log(autorizacion);
     try {
         const listaLibro = await tablaLibro.select();
+        /*setTimeout(() => {
+            respuesta.json(listaLibro);    
+        }, 2000);*/
         respuesta.json(listaLibro);
     } catch (err) {
         respuesta.status(500).send(err.message);
@@ -28,7 +31,7 @@ router.put("/", async (peticion, respuesta) => {
     try {
         const libroRecibido = peticion.body;
         console.log(libroRecibido);
-        await tablaLibro.update(libroRecibido)
+        await tablaLibro.update(libroRecibido, idactual)
         respuesta.sendStatus(200);
     } catch (err) {
         respuesta.status(500).send(err.message);
