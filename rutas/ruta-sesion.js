@@ -12,7 +12,7 @@ router.post("/iniciar", async (peticion, respuesta)=>{
         const usuarios = await tablaUsuario.getUsuarioPorCi(ci, password);
         if(usuarios.length !== 0){
             const usuario = usuarios[0];
-            const token = await jwtUtils.generarToken(usuario);
+            const token = await jwtUtils.generarToken(usuario.id);
             respuesta.json({token});
         }else{
             respuesta.sendStatus(401);
